@@ -1,5 +1,6 @@
 package com.example.geoquiz
 
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.geoquiz.databinding.ActivityMainBinding
 
+private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
     // 개별 요소(id)에 접근하는 대신 전체 layout에 접근할 수 있게 한다.
     private lateinit var binding: ActivityMainBinding
@@ -26,6 +28,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.d(TAG, "onCreate(Bundle?) called")
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -49,6 +54,31 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateQuestion()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart() called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume() called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause() called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop() called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy() called")
     }
 
     private fun updateQuestion() {
