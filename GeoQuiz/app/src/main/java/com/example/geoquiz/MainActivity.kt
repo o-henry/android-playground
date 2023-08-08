@@ -42,10 +42,13 @@ class MainActivity : AppCompatActivity() {
         }
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size // handle index, 마지막 인덱스를 초과할경우 처음으로 돌아간다.
-            val questionTextResId = questionBank[currentIndex].textResId
-            binding.questionTextView.setText(questionTextResId)
+            updateQuestion()
         }
 
+        updateQuestion()
+    }
+
+    private fun updateQuestion() {
         val questionTextResId = questionBank[currentIndex].textResId
         binding.questionTextView.setText(questionTextResId)
     }
