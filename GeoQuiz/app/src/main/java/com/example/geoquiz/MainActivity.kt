@@ -40,5 +40,13 @@ class MainActivity : AppCompatActivity() {
                 this, R.string.incorrect_toast, Toast.LENGTH_SHORT
             ).show()
         }
+        binding.nextButton.setOnClickListener {
+            currentIndex = (currentIndex + 1) % questionBank.size // handle index, 마지막 인덱스를 초과할경우 처음으로 돌아간다.
+            val questionTextResId = questionBank[currentIndex].textResId
+            binding.questionTextView.setText(questionTextResId)
+        }
+
+        val questionTextResId = questionBank[currentIndex].textResId
+        binding.questionTextView.setText(questionTextResId)
     }
 }
