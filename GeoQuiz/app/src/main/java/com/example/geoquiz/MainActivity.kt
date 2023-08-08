@@ -30,18 +30,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // event
-        binding.trueButton.setOnClickListener { view: View ->
-            Toast.makeText(
-                this, R.string.correct_toast, Toast.LENGTH_SHORT
-            ).show()
+        binding.trueButton.setOnClickListener {
+            checkAnswer(true)
         }
-        binding.falseButton.setOnClickListener { view: View ->
-            Toast.makeText(
-                this, R.string.incorrect_toast, Toast.LENGTH_SHORT
-            ).show()
+        binding.falseButton.setOnClickListener {
+            checkAnswer(false)
         }
         binding.nextButton.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size // handle index, 마지막 인덱스를 초과할경우 처음으로 돌아간다.
+            currentIndex =
+                (currentIndex + 1) % questionBank.size // handle index, 마지막 인덱스를 초과할경우 처음으로 돌아간다.
+            updateQuestion()
+        }
+        binding.prevButton.setOnClickListener {
+            TODO("이전 버튼을 눌렀을 때 0 이하일 수는 없다")
+        }
+        binding.questionTextView.setOnClickListener {
             updateQuestion()
         }
 
@@ -51,5 +54,17 @@ class MainActivity : AppCompatActivity() {
     private fun updateQuestion() {
         val questionTextResId = questionBank[currentIndex].textResId
         binding.questionTextView.setText(questionTextResId)
+    }
+
+    private fun checkAnswer(userAnswer: Boolean) {
+        val correctAnswer = questionBank[currentIndex].answer
+
+        val messageResId = if (userAnswer == correctAnswer) {
+            R.string.correct_toast
+        } else {
+            R.string.incorrect_toast
+        }
+
+        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
     }
 }
