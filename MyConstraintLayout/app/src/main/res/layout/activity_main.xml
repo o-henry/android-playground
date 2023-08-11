@@ -6,58 +6,51 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:gravity="start|top"
-            android:ems="10"
-            android:id="@+id/editTextTextMultiLine"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            android:layout_marginEnd="24dp" />
-
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:gravity="start|top"
-            android:ems="10"
-            android:id="@+id/editTextTextMultiLine2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp" />
-
-    <androidx.constraintlayout.widget.Barrier
+    <Button
+            android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/barrier2"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="editTextTextMultiLine,editTextTextMultiLine2" />
-
-    <androidx.constraintlayout.widget.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/guideline"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+            android:id="@+id/button2" />
 
     <Button
             android:text="Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
+            android:id="@+id/button3" />
+
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4" />
+
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button5" />
+
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button6" />
+
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button7" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:constraint_referenced_ids="button2,button3,button4,button5,button6,button7"
+            android:id="@+id/flow"
+            app:flow_horizontalStyle="spread"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barrier2"
-            android:layout_marginTop="24dp" />
-
-
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:flow_wrapMode="chain" />
 </androidx.constraintlayout.widget.ConstraintLayout>
