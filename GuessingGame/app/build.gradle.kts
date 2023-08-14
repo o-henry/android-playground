@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.catchat"
+    namespace = "com.example.guessinggame"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.catchat"
+        applicationId = "com.example.guessinggame"
         minSdk = 21
         targetSdk = 33
         versionCode = 1
@@ -32,6 +32,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
