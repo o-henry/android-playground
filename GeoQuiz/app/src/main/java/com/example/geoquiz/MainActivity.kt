@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.example.geoquiz.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity() {
     // 개별 요소(id)에 접근하는 대신 전체 layout에 접근할 수 있게 한다.
     private lateinit var binding: ActivityMainBinding
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         // event
         binding.trueButton.setOnClickListener {
