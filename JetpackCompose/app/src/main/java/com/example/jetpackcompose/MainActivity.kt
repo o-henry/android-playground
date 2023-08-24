@@ -80,15 +80,6 @@ fun MessageCard(msg: Message) {
     }
 }
 
-@Composable
-fun Conversation(messages: List<Message>) {
-    LazyColumn {
-        items(messages) {
-            message -> MessageCard(msg = message)
-        }
-    }
-}
-
 @Preview(name = "Light Mode")
 @Preview(
     uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, name = "Dark Mode"
